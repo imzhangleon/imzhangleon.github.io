@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/01/02/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<a id="more"></a>
+
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>article</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Github Pages + Hexo框架下NexT主题搭建博客</title>
+    <url>/2020/08/27/test/</url>
+    <content><![CDATA[<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><ol>
+<li><p>Github账号注册</p>
+</li>
+<li><p>Git安装文件</p>
+<p>直接从官网下载比较困难，可以通过这个国内的下载站快速下载 (<a href="https://github.com/git-for-windows/git/releases/">https://github.com/git-for-windows/git/releases/</a>)</p>
+</li>
+<li><p>Node.js安装文件</p>
+</li>
+</ol>
+<p>本次搭建环境：Windows10 64位操作系统，Git-2.28.0，node -v14.11.0</p>
+<a id="more"></a>
+
+<h2 id="Github新建仓库"><a href="#Github新建仓库" class="headerlink" title="Github新建仓库"></a>Github新建仓库</h2><ol>
+<li><p>在Github新建一个repository，取名：username.github.io    （username是Github用户名）</p>
+</li>
+<li><p>选择通过README文件，初始化仓库</p>
+</li>
+<li><p>在本仓库内选择Setting选项，下拉至Github Pages选项处，Source 选择 master。完成后Github Pages选项框内会更新一个地址，通过此地址即可访问博客。当然现阶段，博客内还没有任何内容。</p>
+</li>
+</ol>
+<h2 id="Git安装配置"><a href="#Git安装配置" class="headerlink" title="Git安装配置"></a>Git安装配置</h2><p>通过安装包直接安装，在不了解配置选项含义的情况下，选择默认项。安装完成后，打开Git Bash，进行配置账户</p>
+<ol>
+<li><p>配置用户名 </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;name&quot;</span>      <span class="comment"># &quot;name&quot;是github用户名</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置邮箱</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.email <span class="string">&quot;email&quot;</span>   <span class="comment"># &quot;email&quot;是github注册邮箱</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成密钥 </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;email&quot;</span>   	 <span class="comment"># &quot;email&quot;是github注册邮箱   </span></span><br><span class="line"><span class="comment"># 输入命令后，可以直接回车跳过其余步骤，直到命令执行完成</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看秘钥</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:\Users\Administrator\.ssh</span><br></pre></td></tr></table></figure>
+
+<p>此路径下包含两个文件，id_rsa 是私钥，id_rsa.pub 是公钥。打开id_rsa.pub，复制全部内容。</p>
+</li>
+<li><p>添加秘钥</p>
+<p>打开Github，在菜单栏Settings选项下，找到SSH Keys选项，将复制的秘钥粘贴在key文本框内，点击Add Key。</p>
+</li>
+</ol>
+<h2 id="Node及Hexo安装"><a href="#Node及Hexo安装" class="headerlink" title="Node及Hexo安装"></a>Node及Hexo安装</h2><ol>
+<li><p>通过安装包安装Node.js</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">node -v   # 显示版本号即为成功</span><br><span class="line">npm -v    # npm集成在Node中一同安装，通过版本号查验</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>通过npm安装Hexo</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新建一个要放置博客的文件夹，例如blog，在此目录下打开Git Bash执行操作</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init	<span class="comment">#初始化</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行完毕后，blog文件夹内下会生成一系列文件。<br>注意：其中有一个配置文件：_config.yml，将其称为<strong>站点配置文件</strong>，用于设置博客的属性。</p>
+</li>
+<li><p>继续在Git Bash内操作</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo generate     <span class="comment"># 生成静态文件</span></span><br><span class="line">hexo server       <span class="comment"># 在本地服务器运行</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用终端内提示的IP地址 <a href="http://localhost:4000/">http://localhost:4000</a> 即可预览博客</p>
+</li>
+</ol>
+<p>补充：Hexo常用命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g    <span class="comment"># 等同于hexo generate  生成静态文件</span></span><br><span class="line">hexo s    <span class="comment"># 等同于hexo server	   在本地服务器运行</span></span><br><span class="line">hexo d    <span class="comment"># 等同于hexo deploy	   部署至服务器</span></span><br><span class="line">hexo clean  <span class="comment"># 清理Hexo缓存</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="NexT主题安装"><a href="#NexT主题安装" class="headerlink" title="NexT主题安装"></a>NexT主题安装</h2><p>在blog文件夹下，打开Git Bash执行操作</p>
+<ol>
+<li><p>将NexT主题克隆至themes/next文件夹中，后续对博客主题相关的操作都在next文件夹内进行。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next.git themes/next </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开<strong>站点配置文件</strong>，配置属性</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">theme: next		<span class="comment"># 将主题设置为next</span></span><br><span class="line"></span><br><span class="line">deploy:			<span class="comment"># 设置要部署的仓库  </span></span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/username/username.github.io.git  <span class="comment"># username替换为自己的用户名</span></span><br><span class="line">  branch: master</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装Git部署插件，在Git Bash中执行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>清除缓存，重启服务</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>至此，通过模板搭建博客完成。现在可以通过Github Pages的地址访问博客了。</p>
+<p>参考：<br>Hexo中文文档：<a href="https://hexo.io/zh-cn/docs/">https://hexo.io/zh-cn/docs/</a><br>NexT使用文档：<a href="http://theme-next.iissnan.com/">http://theme-next.iissnan.com/</a></p>
+<h2 id="个性化配置"><a href="#个性化配置" class="headerlink" title="个性化配置"></a>个性化配置</h2><h3 id="修改博客站点属性"><a href="#修改博客站点属性" class="headerlink" title="修改博客站点属性"></a>修改博客站点属性</h3><p>打开<strong>站点配置文件</strong>，搜索 site ，找到如下信息后，按需修改</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line">title: Learning Notes</span><br><span class="line">subtitle: <span class="string">&#x27;Dive Into It&#x27;</span></span><br><span class="line">description: <span class="string">&#x27;前端界的一个小学生&#x27;</span></span><br><span class="line">keywords:</span><br><span class="line">author: Leon Zhang</span><br><span class="line">language: zh-CN</span><br><span class="line">timezone: <span class="string">&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="修改博客主题属性"><a href="#修改博客主题属性" class="headerlink" title="修改博客主题属性"></a>修改博客主题属性</h3><p>打开next主题文件夹内的_config.yml文件，这是我们的<strong>主题配置文件</strong>，同于设置next主题相关的属性。</p>
+<h4 id="主题样式设置"><a href="#主题样式设置" class="headerlink" title="主题样式设置"></a>主题样式设置</h4><p>在<strong>主题配置文件</strong>内，搜索 schemes，找到如下信息，选择一款中意的主题样式，去掉前面的#即可</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Schemes</span></span><br><span class="line">scheme: Muse</span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line"><span class="comment">#scheme: Gemini</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="标签页设置"><a href="#标签页设置" class="headerlink" title="标签页设置"></a>标签页设置</h4><p>在<strong>主题配置文件</strong>内，搜索 menu，找到如下信息，选择好要展示的标签页，去掉前面的#即可，还可以通过调换文字位置，改变标签页的展示顺序。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || home</span><br><span class="line">  <span class="comment">#about: /about/ || user</span></span><br><span class="line">  <span class="comment">#tags: /tags/ || tags</span></span><br><span class="line">  <span class="comment">#categories: /categories/ || th</span></span><br><span class="line">  archives: /archives/ || archive</span><br><span class="line">  <span class="comment">#schedule: /schedule/ || calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || sitemap</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || heartbeat</span></span><br></pre></td></tr></table></figure>
+
+<p>清除缓存，更新主题配置文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+
+<p>运行本地服务器，生成静态文件预览：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s -g</span><br></pre></td></tr></table></figure>
+
+<p>通过 <a href="http://localhost:4000/">http://localhost:4000</a> 预览，可发现标签页对应的图标已经出现，但是点击后会报错，无法正常跳转。<br>此时，还需运行如下命令新建相关页面</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;about&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>操作执行后，会产生文件：blog\source\about\index.md。打开此文件进行编辑</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">title: about</span><br><span class="line">date: <span class="number">2020</span><span class="number">-09</span><span class="number">-11</span> <span class="number">19</span>:<span class="number">16</span>:<span class="number">17</span></span><br><span class="line">type: <span class="string">&quot;about&quot;</span>  <span class="comment">//以上两项都是自带的，只需新增type这一行</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>现在标签页的新增工作才算完成。将所有要新增的标签页追个新建完成后，再进行上述三连操作：更新配置+运行服务器+生成页面的操作，就可以去验证了</p>
+<h4 id="隐藏网页底部-powered-By-Hexo-强力驱动"><a href="#隐藏网页底部-powered-By-Hexo-强力驱动" class="headerlink" title="隐藏网页底部 powered By Hexo / 强力驱动"></a>隐藏网页底部 powered By Hexo / 强力驱动</h4><p>打开 next/layout/_partials/footer.swig，注释掉其中内容</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--内容--&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h2><h3 id="文章模板"><a href="#文章模板" class="headerlink" title="文章模板"></a>文章模板</h3><p>为了创建新文章时更加便利，在hexo初始化时，已经生成了文章模板，位于blog/scaffolds文件夹内的draft.md文件，可进行如下配置：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">categories: </span><br><span class="line">tags:</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="文章信息"><a href="#文章信息" class="headerlink" title="文章信息"></a>文章信息</h3><p>在 <strong>主题配置文件</strong> 中修改<code>post_meta</code>，可用于控制信息的显示：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">post_meta:</span><br><span class="line">  item_text: <span class="literal">true</span>   <span class="comment">// 显示文字说明</span></span><br><span class="line">  created_at: <span class="literal">true</span>  <span class="comment">// 显示文章创建时间</span></span><br><span class="line">  updated_at:</span><br><span class="line">    enable: <span class="literal">false</span>  <span class="comment">// 文章修改时间</span></span><br><span class="line">    another_day: <span class="literal">false</span>  <span class="comment">// 只有当修改时间和创建时间不是同一天的时候才显示</span></span><br><span class="line">  categories: <span class="literal">true</span>  <span class="comment">// 分类信息</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>待续……</p>
+]]></content>
+      <categories>
+        <category>blog</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Github Pages + Hexo框架下theme-NexT搭建博客</title>
+    <url>/2020/09/19/next%E4%B8%BB%E9%A2%98%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><ol>
+<li><p>Github账号注册</p>
+</li>
+<li><p>Git安装文件</p>
+<p>直接从官网下载速度极慢，通过这个国内的下载站快速下载 (<a href="https://github.com/git-for-windows/git/releases/">https://github.com/git-for-windows/git/releases/</a>)</p>
+</li>
+<li><p>Node.js安装文件</p>
+</li>
+</ol>
+<p>本次搭建环境：Windows10 64位操作系统，Git-2.28.0，node -v14.11.0.</p>
+<a id="more"></a>
+
+
+
+<h2 id="Github新建仓库"><a href="#Github新建仓库" class="headerlink" title="Github新建仓库"></a>Github新建仓库</h2><ol>
+<li><p>在Github新建一个repository，取名：username.github.io    （username是Github用户名）</p>
+</li>
+<li><p>选择通过<code>README</code>文件，初始化仓库</p>
+</li>
+<li><p>在本仓库内选择<code>Settings</code>选项，下拉至<code>Github Pages</code>选项处，<code>Source</code>选项选择 <code>master</code>。完成后<code>Github Pages</code>选项框内会更新一个地址，通过此地址即可访问博客。当然现阶段博客内还没有任何内容。</p>
+</li>
+</ol>
+<h2 id="Git安装配置"><a href="#Git安装配置" class="headerlink" title="Git安装配置"></a>Git安装配置</h2><p>通过安装包直接安装，在不了解配置选项含义的情况下，选择默认项。安装完成后，打开Git Bash，进行配置账户。</p>
+<ol>
+<li><p>配置用户名 </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;name&quot;</span>	<span class="comment"># &quot;name&quot;是github用户名</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置邮箱</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.email <span class="string">&quot;email&quot;</span>	<span class="comment"># &quot;email&quot;是github注册邮箱</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成密钥 </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;email&quot;</span>	<span class="comment"># &quot;email&quot;是github注册邮箱   </span></span><br><span class="line"><span class="comment"># 输入命令后，可以直接回车跳过其余步骤，直到命令执行完成</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看秘钥</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:\Users\Administrator\.ssh</span><br></pre></td></tr></table></figure>
+
+<p>此路径下包含两个文件，<code>id_rsa</code> 是私钥，<code>id_rsa.pub</code> 是公钥。打开<code>id_rsa.pub</code>，复制全部内容。</p>
+</li>
+<li><p>添加秘钥</p>
+<p>打开Github，在菜单栏<code>Settings</code>选项下，找到<code>SSH Keys</code>选项，将复制的秘钥粘贴在<code>key</code>文本框内，点击<code>Add Key</code>。</p>
+</li>
+</ol>
+<h2 id="Node及Hexo安装"><a href="#Node及Hexo安装" class="headerlink" title="Node及Hexo安装"></a>Node及Hexo安装</h2><ol>
+<li><p>通过安装包安装Node.js</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node -v   <span class="comment"># 显示版本号即为成功</span></span><br><span class="line">npm -v	  <span class="comment"># npm集成在Node中一同安装，通过版本号查验</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>通过npm安装Hexo</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新建一个要放置博客的文件夹，例如<code>blog</code>，在此目录下打开Git Bash执行操作</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init	<span class="comment"># 初始化</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行完毕后，<code>blog</code>文件夹内下会生成一系列文件<br>注意：其中有一个配置文件：<code>_config.yml</code>，将其称为<strong>站点配置文件</strong>，用于设置博客的属性。</p>
+</li>
+<li><p>继续在Git Bash内操作</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo generate    <span class="comment"># 生成静态文件</span></span><br><span class="line">hexo server    <span class="comment"># 在本地服务器运行</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用终端内提示的IP地址 <a href="http://localhost:4000/">http://localhost:4000</a> 即可预览博客</p>
+</li>
+</ol>
+<p>补充：Hexo常用命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g    <span class="comment"># 等同于hexo generate 生成静态文件</span></span><br><span class="line">hexo s    <span class="comment"># 等同于hexo server 在本地服务器运行</span></span><br><span class="line">hexo d    <span class="comment"># 等同于hexo deploy 部署至服务器</span></span><br><span class="line">hexo clean    <span class="comment"># 清理Hexo缓存，使配置文件生效</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="NexT主题安装"><a href="#NexT主题安装" class="headerlink" title="NexT主题安装"></a>NexT主题安装</h2><p>在blog文件夹下，打开Git Bash执行操作</p>
+<ol>
+<li><p>将NexT主题克隆至<code>themes/next</code>文件夹中，后续对博客主题相关的操作都在<code>next</code>文件夹内进行。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next.git themes/next </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开<strong>站点配置文件</strong>，配置属性</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">theme: next    <span class="comment"># 将主题设置为next</span></span><br><span class="line"></span><br><span class="line">deploy:    <span class="comment"># 设置要部署的仓库  </span></span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/username/username.github.io.git   <span class="comment"># username替换为自己的用户名</span></span><br><span class="line">  branch: master</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装Git部署插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>部署至Github</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>至此，通过模板搭建博客完成。现在可以通过Github Pages提供的地址访问博客了。</p>
+<p>参考：<br>Hexo中文文档：<a href="https://hexo.io/zh-cn/docs/">https://hexo.io/zh-cn/docs/</a><br>NexT使用文档：<a href="http://theme-next.iissnan.com/">http://theme-next.iissnan.com/</a></p>
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+  </entry>
+</search>
