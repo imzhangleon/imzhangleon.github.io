@@ -9,6 +9,14 @@
       </categories>
   </entry>
   <entry>
+    <title>CSS总结归纳</title>
+    <url>/2020/06/19/02.CSS/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Vue全家桶搭建新闻网站</title>
     <url>/2020/09/13/news-site/</url>
     <content><![CDATA[<h2 id="vue开发环境配置"><a href="#vue开发环境配置" class="headerlink" title="vue开发环境配置"></a>vue开发环境配置</h2><h3 id="关于vue-cli"><a href="#关于vue-cli" class="headerlink" title="关于vue-cli"></a>关于vue-cli</h3><p>vue-cli是一个脚手架工具，它集成了多项前端技术，包括但不限于：</p>
@@ -28,6 +36,8 @@
 <li>npm包管理器</li>
 </ul>
 <p>目前，npm已经和node集成，安装node后，会自动安装npm。</p>
+<a id="more"></a>
+
 <h3 id="开发环境配置"><a href="#开发环境配置" class="headerlink" title="开发环境配置"></a>开发环境配置</h3><h4 id="安装node及npm"><a href="#安装node及npm" class="headerlink" title="安装node及npm"></a>安装node及npm</h4><p>首先通过node.js安装包，一次性完成node和npm的安装。完成后查验是否安装成功</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">node -v  <span class="comment"># 返回值为node版本</span></span><br><span class="line">npm -v	<span class="comment"># 返回值为npm版本</span></span><br></pre></td></tr></table></figure>
 
@@ -202,104 +212,6 @@
       </categories>
   </entry>
   <entry>
-    <title>CSS总结归纳</title>
-    <url>/2020/06/19/02.CSS/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>CSS</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Vue归纳总结</title>
-    <url>/2020/08/22/vue/</url>
-    <content><![CDATA[<h1 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h1><p>vue可以解决前端开发 核心痛点————-复杂的DOM操作</p>
-<p><strong>vue特点：</strong></p>
-<p>渐进式：可以仅仅在某些页面或者页面某些部分使用vue</p>
-<p>组件化：</p>
-<p>响应式：</p>
-<p><strong>使用Vue的两种方式：</strong></p>
-<p>在页面中引入vue的js文件</p>
-<p>通过脚手架</p>
-<p>ui库： elementui</p>
-<p>状态管理：vuex</p>
-<p>路由：vue-router</p>
-<p>请求：axios</p>
-<p>脚手架：vue-cli</p>
-<p>调试工具：vue-devtools</p>
-<p>es6find函数</p>
-<p>属性：别人的 props</p>
-<p>数据： 自己的 data  为什么用函数的形式反悔</p>
-<p>methods</p>
-<p>computed</p>
-<p>什么时候用函数  什么时候用对象</p>
-<p>具名到处和不具名 导出区别</p>
-<p>Authorization  token</p>
-<p>sessionStorage</p>
-<p>虚拟dom</p>
-<p>组件之间的通信：</p>
-<p>父组件——–数据——–&gt;子组件 props</p>
-<p>子组件——–事件——–&gt;父组件 emit</p>
-<h3 id="组件生命周期"><a href="#组件生命周期" class="headerlink" title="组件生命周期"></a>组件生命周期</h3><img src="E:\Aweb\web-projects\vue\组件生命周期.PNG" alt="组件生命周期" style="zoom: 50%;" /> 
-
-<p>针对上图生命周期序号下表进行解释：</p>
-<p>1.new vue() : 这是new了一个vue的实例对象；此时就会进入组件的创建过程。</p>
-<p>2.Init Events &amp; Lifecycle ：初始化组件的事件和生命周期函数；当执行完这一步之后，组件的生命周期函数就已经全部初始化好了，等待着依次去调用。</p>
-<p>3.beforeCreate ：</p>
-<p><strong>官方说明：</strong>在实例初始化之后，数据观测(data observer) 和 event/watcher 事件配置之前被调用。</p>
-<p>解释：这是第一个生命周期函数；此时，组件的data和methods以及页面DOM结构，都还没有初始化；所以此阶段，什么都做不了。</p>
-<p>4.Init injections &amp; reactivity ：这个阶段中，正在初始化data和methods中的数据以及方法。</p>
-<p>5.created ：</p>
-<p><strong>官方说明：</strong>实例已经创建完成之后被调用。在这一步，实例已完成以下的配置：数据观测(data observer)，属性和方法的运算， watch/event 事件回调。然而，挂载阶段还没开始，$el 属性目前不可见。</p>
-<p>解释：这个组件创建阶段第二个生命周期函数，此时，组件的data和methods已经可以用了；但是页面还没有渲染出来；在这个生命周期函数中，我们经常会发起Ajax请求；</p>
-<p>6.正在解析模板结构，把data上的数据拿到，并且解析执行模板结构汇总的指令；当所有指令被解析完毕，那么模板页面就被渲染到内存中了；当模板编译完成，我们的模板页面，还没有挂载到页面上，只是存在于内存中，用户看不到页面；</p>
-<p>7.beforeMount :</p>
-<p><strong>官方说明：</strong>在挂载开始之前被调用：相关的 render 函数首次被调用。</p>
-<p>解释：当模板在内存中编译完成，会立即执行实例创建阶段的第三个生命周期函数，这个函数就是beforeMount，此时内存中的模板结构，还没有真正渲染到页面上；此时，页面上看不到真实的数据，用户看到的只是一个模板页面而已；</p>
-<p>8.这一步把正在内存中渲染好的模板结构替换到页面上；</p>
-<p>9.mounted ：</p>
-<p><strong>官方说明：</strong>el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子。如果 root 实例挂载了一个文档内元素，当 mounted 被调用时 vm.$el 也在文档内。 </p>
-<p>解释：mounted是组件创建阶段最后的一个生命周期函数；此时，页面已经真正的渲染好了，用户可以看到真实的页面数据了；当这个生命周期函数执行完，组件就离开了创建阶段，进入到了运行中的阶段；如果大家使用到一些第三方的UI插件，而且这个插件还需要被初始化，那么，必须在mounted中来初始化插件；</p>
-<p>10.组件运行汇总的生命周期函数；组件运行中的生命周期函数，会根据data数据的变化，有选择性的被触发0次货N次；</p>
-<p>11.beforeUpdate ：</p>
-<p><strong>官方说明：</strong>数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁之前。你可以在这个钩子中进一步地更改状态，这不会触发附加的重渲染过程。</p>
-<p>解释：在执行beforeUpdate运行中的生命周期函数的时候，数据肯定是最新的；但是页面上呈现的数据还是旧的</p>
-<p>12.正在根据最新的data数据，重新渲染内存中的的模板结构；并把渲染好的模板结构替换到页面上</p>
-<p>13.updated ： </p>
-<p><strong>官方说明：</strong>由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作。</p>
-<p>解释：页面也完成了更新，此时，data数据是最新的，同时，页面上呈现的数据也是最新的。</p>
-<p>14.beforeDestroy ：</p>
-<p><strong>官方说明：</strong>实例销毁之前调用。在这一步，实例仍然完全可用。</p>
-<p>解释：当执行beforeDestroy的时候，组件即将被销毁，但是还没有真正开始销毁，此时组件还是正常可用的；data、methods等数据或方法，依旧可以被正常访问</p>
-<p>15.销毁过程</p>
-<p>16.destroyed ：</p>
-<p><strong>官方说明：</strong>vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。</p>
-<p>解释：组件已完成了销毁，组件无法使用，data和methods都不可使用。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">    &lt;script src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;input  v-model=<span class="string">&quot;message&quot;</span>/&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;message&#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;button @click=<span class="string">&quot;clickfun&quot;</span>&gt;按钮&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> myVue = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">        data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> &#123;</span><br><span class="line">                message: <span class="string">&#x27;XXXX&#x27;</span></span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;,</span><br><span class="line">        </span><br><span class="line">        beforeCreate: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.group(<span class="string">&#x27;beforeCreate 创建前状态===============》&#x27;</span>);</span><br><span class="line">            <span class="keyword">var</span> state = &#123;</span><br><span class="line">                <span class="string">&#x27;el&#x27;</span>: <span class="built_in">this</span>.$el,</span><br><span class="line">                <span class="string">&#x27;data&#x27;</span>: <span class="built_in">this</span>.$data,</span><br><span class="line">                <span class="string">&#x27;message&#x27;</span>: <span class="built_in">this</span>.message</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">console</span>.log(state);</span><br><span class="line">        &#125;,</span><br><span class="line">        </span><br><span class="line">        created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.group(<span class="string">&#x27;created 创建完毕状态===============》&#x27;</span>);</span><br><span class="line">            <span class="keyword">var</span> state = &#123;</span><br><span class="line">                <span class="string">&#x27;el&#x27;</span>: <span class="built_in">this</span>.$el,</span><br><span class="line">                <span class="string">&#x27;data&#x27;</span>: <span class="built_in">this</span>.$data,</span><br><span class="line">                <span class="string">&#x27;message&#x27;</span>: <span class="built_in">this</span>.message</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">console</span>.log(state);</span><br><span class="line">        &#125;,</span><br><span class="line">        </span><br><span class="line">        beforeMount: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.group(<span class="string">&#x27;beforeMount 挂载前状态===============》&#x27;</span>);</span><br><span class="line">            <span class="keyword">var</span> state = &#123;</span><br><span class="line">                <span class="string">&#x27;el&#x27;</span>: <span class="built_in">this</span>.$el,</span><br><span class="line">                <span class="string">&#x27;data&#x27;</span>: <span class="built_in">this</span>.$data,</span><br><span class="line">                <span class="string">&#x27;message&#x27;</span>: <span class="built_in">this</span>.message</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">this</span>.$el);</span><br><span class="line">            <span class="built_in">console</span>.log(state);</span><br><span class="line">        &#125;,</span><br><span class="line">        </span><br><span class="line">        mounted: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.group(<span class="string">&#x27;mounted 挂载结束状态===============》&#x27;</span>);</span><br><span class="line">            <span class="keyword">var</span> state = &#123;</span><br><span class="line">                <span class="string">&#x27;el&#x27;</span>: <span class="built_in">this</span>.$el,</span><br><span class="line">                <span class="string">&#x27;data&#x27;</span>: <span class="built_in">this</span>.$data,</span><br><span class="line">                <span class="string">&#x27;message&#x27;</span>: <span class="built_in">this</span>.message</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">this</span>.$el);</span><br><span class="line">            <span class="built_in">console</span>.log(state);</span><br><span class="line">        &#125;,</span><br><span class="line">        </span><br><span class="line">        beforeUpdate: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.group(<span class="string">&#x27;beforeUpdate 更新前状态===============》&#x27;</span>);</span><br><span class="line">            <span class="keyword">var</span> state = &#123;</span><br><span class="line">                <span class="string">&#x27;el&#x27;</span>: <span class="built_in">this</span>.$el,</span><br><span class="line">                <span class="string">&#x27;data&#x27;</span>: <span class="built_in">this</span>.$data,</span><br><span class="line">                <span class="string">&#x27;message&#x27;</span>: <span class="built_in">this</span>.message</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">this</span>.$el);</span><br><span class="line">            <span class="built_in">console</span>.log(state);</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">&#x27;beforeUpdate == &#x27;</span> + <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;p&#x27;</span>)[<span class="number">0</span>].innerHTML);</span><br><span class="line">        &#125;,</span><br><span class="line">        </span><br><span class="line">        updated: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.group(<span class="string">&#x27;updated 更新完成状态===============》&#x27;</span>);</span><br><span class="line">            <span class="keyword">var</span> state = &#123;</span><br><span class="line">                <span class="string">&#x27;el&#x27;</span>: <span class="built_in">this</span>.$el,</span><br><span class="line">                <span class="string">&#x27;data&#x27;</span>: <span class="built_in">this</span>.$data,</span><br><span class="line">                <span class="string">&#x27;message&#x27;</span>: <span class="built_in">this</span>.message</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">this</span>.$el);</span><br><span class="line">            <span class="built_in">console</span>.log(state);</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">&#x27;updated == &#x27;</span> + <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;p&#x27;</span>)[<span class="number">0</span>].innerHTML);</span><br><span class="line">        &#125;,</span><br><span class="line">        </span><br><span class="line">        beforeDestroy: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.group(<span class="string">&#x27;beforeDestroy 销毁前状态===============》&#x27;</span>);</span><br><span class="line">            <span class="keyword">var</span> state = &#123;</span><br><span class="line">                <span class="string">&#x27;el&#x27;</span>: <span class="built_in">this</span>.$el,</span><br><span class="line">                <span class="string">&#x27;data&#x27;</span>: <span class="built_in">this</span>.$data,</span><br><span class="line">                <span class="string">&#x27;message&#x27;</span>: <span class="built_in">this</span>.message</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">this</span>.$el);</span><br><span class="line">            <span class="built_in">console</span>.log(state);</span><br><span class="line">        &#125;,</span><br><span class="line">        </span><br><span class="line">        destroyed: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.group(<span class="string">&#x27;destroyed 销毁完成状态===============》&#x27;</span>);</span><br><span class="line">            <span class="keyword">var</span> state = &#123;</span><br><span class="line">                <span class="string">&#x27;el&#x27;</span>: <span class="built_in">this</span>.$el,</span><br><span class="line">                <span class="string">&#x27;data&#x27;</span>: <span class="built_in">this</span>.$data,</span><br><span class="line">                <span class="string">&#x27;message&#x27;</span>: <span class="built_in">this</span>.message</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">this</span>.$el);</span><br><span class="line">            <span class="built_in">console</span>.log(state);</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            clickfun() &#123;</span><br><span class="line">                myVue.$destroy()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<ol>
-<li>beforeCreated （）：发生在组件注入前，此时无提取的信息，无响应式</li>
-<li>created（）：</li>
-</ol>
-<h3 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h3><h5 id="路由模式"><a href="#路由模式" class="headerlink" title="路由模式"></a>路由模式</h5><p>hash:  路径来自于地址栏中的#后面的值,兼容性较好</p>
-<p>history: 路径来自于真实的地址,就浏览器不兼容</p>
-<p>abstract: 路径来自于内存</p>
-<h3 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h3><p>数据的配置 state</p>
-<p>数据的改动:必须要提交mutation</p>
-<p>数据共享</p>
-<p>组件化开发的好处</p>
-<h5 id="页面刷新过程"><a href="#页面刷新过程" class="headerlink" title="页面刷新过程:"></a>页面刷新过程:</h5><p><strong>浏览器</strong> 通过 <strong>地址</strong> 访问 <strong>服务器</strong>, 下载html,css,js文件,浏览器渲染页面,执行js,创建vue实例,渲染根组件,router-view根据不同路径渲染相应组件</p>
-<h5 id="虚拟dom"><a href="#虚拟dom" class="headerlink" title="虚拟dom"></a>虚拟dom</h5>]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Github Pages + Hexo框架下theme-NexT搭建博客</title>
     <url>/2020/09/19/next%E4%B8%BB%E9%A2%98%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><ol>
@@ -393,6 +305,100 @@
 ]]></content>
       <categories>
         <category>博客</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Vue归纳总结</title>
+    <url>/2020/08/22/vue/</url>
+    <content><![CDATA[<h1 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h1><p>vue可以解决的核心问题————-复杂的DOM操作</p>
+<p><strong>vue特点：</strong></p>
+<p>渐进式：可以仅仅在某些页面或者页面某些部分使用vue</p>
+<p>组件化：</p>
+<p>响应式：</p>
+<p><strong>使用Vue的两种方式：</strong></p>
+<p>在页面中引入vue的js文件</p>
+<p>通过脚手架</p>
+<a id="more"></a>
+
+
+
+<p>ui库： elementui</p>
+<p>状态管理：vuex</p>
+<p>路由：vue-router</p>
+<p>请求：axios</p>
+<p>脚手架：vue-cli</p>
+<p>调试工具：vue-devtools</p>
+<p>es6find函数</p>
+<p>属性：别人的 props</p>
+<p>数据： 自己的 data  为什么用函数的形式反悔</p>
+<p>methods</p>
+<p>computed</p>
+<p>什么时候用函数  什么时候用对象</p>
+<p>具名到处和不具名 导出区别</p>
+<p>Authorization  token</p>
+<p>sessionStorage</p>
+<p>虚拟dom</p>
+<p>组件之间的通信：</p>
+<p>父组件——–数据——–&gt;子组件 props</p>
+<p>子组件——–事件——–&gt;父组件 emit</p>
+<h3 id="组件生命周期"><a href="#组件生命周期" class="headerlink" title="组件生命周期"></a>组件生命周期</h3><img src="E:\Aweb\web-projects\vue\组件生命周期.PNG" alt="组件生命周期" style="zoom: 50%;" /> 
+
+<p>针对上图生命周期序号下表进行解释：</p>
+<p>1.new vue() : 这是new了一个vue的实例对象；此时就会进入组件的创建过程。</p>
+<p>2.Init Events &amp; Lifecycle ：初始化组件的事件和生命周期函数；当执行完这一步之后，组件的生命周期函数就已经全部初始化好了，等待着依次去调用。</p>
+<p>3.beforeCreate ：</p>
+<p><strong>官方说明：</strong>在实例初始化之后，数据观测(data observer) 和 event/watcher 事件配置之前被调用。</p>
+<p>解释：这是第一个生命周期函数；此时，组件的data和methods以及页面DOM结构，都还没有初始化；所以此阶段，什么都做不了。</p>
+<p>4.Init injections &amp; reactivity ：这个阶段中，正在初始化data和methods中的数据以及方法。</p>
+<p>5.created ：</p>
+<p><strong>官方说明：</strong>实例已经创建完成之后被调用。在这一步，实例已完成以下的配置：数据观测(data observer)，属性和方法的运算， watch/event 事件回调。然而，挂载阶段还没开始，$el 属性目前不可见。</p>
+<p>解释：这个组件创建阶段第二个生命周期函数，此时，组件的data和methods已经可以用了；但是页面还没有渲染出来；在这个生命周期函数中，我们经常会发起Ajax请求；</p>
+<p>6.正在解析模板结构，把data上的数据拿到，并且解析执行模板结构汇总的指令；当所有指令被解析完毕，那么模板页面就被渲染到内存中了；当模板编译完成，我们的模板页面，还没有挂载到页面上，只是存在于内存中，用户看不到页面；</p>
+<p>7.beforeMount :</p>
+<p><strong>官方说明：</strong>在挂载开始之前被调用：相关的 render 函数首次被调用。</p>
+<p>解释：当模板在内存中编译完成，会立即执行实例创建阶段的第三个生命周期函数，这个函数就是beforeMount，此时内存中的模板结构，还没有真正渲染到页面上；此时，页面上看不到真实的数据，用户看到的只是一个模板页面而已；</p>
+<p>8.这一步把正在内存中渲染好的模板结构替换到页面上；</p>
+<p>9.mounted ：</p>
+<p><strong>官方说明：</strong>el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子。如果 root 实例挂载了一个文档内元素，当 mounted 被调用时 vm.$el 也在文档内。 </p>
+<p>解释：mounted是组件创建阶段最后的一个生命周期函数；此时，页面已经真正的渲染好了，用户可以看到真实的页面数据了；当这个生命周期函数执行完，组件就离开了创建阶段，进入到了运行中的阶段；如果大家使用到一些第三方的UI插件，而且这个插件还需要被初始化，那么，必须在mounted中来初始化插件；</p>
+<p>10.组件运行汇总的生命周期函数；组件运行中的生命周期函数，会根据data数据的变化，有选择性的被触发0次货N次；</p>
+<p>11.beforeUpdate ：</p>
+<p><strong>官方说明：</strong>数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁之前。你可以在这个钩子中进一步地更改状态，这不会触发附加的重渲染过程。</p>
+<p>解释：在执行beforeUpdate运行中的生命周期函数的时候，数据肯定是最新的；但是页面上呈现的数据还是旧的</p>
+<p>12.正在根据最新的data数据，重新渲染内存中的的模板结构；并把渲染好的模板结构替换到页面上</p>
+<p>13.updated ： </p>
+<p><strong>官方说明：</strong>由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作。</p>
+<p>解释：页面也完成了更新，此时，data数据是最新的，同时，页面上呈现的数据也是最新的。</p>
+<p>14.beforeDestroy ：</p>
+<p><strong>官方说明：</strong>实例销毁之前调用。在这一步，实例仍然完全可用。</p>
+<p>解释：当执行beforeDestroy的时候，组件即将被销毁，但是还没有真正开始销毁，此时组件还是正常可用的；data、methods等数据或方法，依旧可以被正常访问</p>
+<p>15.销毁过程</p>
+<p>16.destroyed ：</p>
+<p><strong>官方说明：</strong>vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。</p>
+<p>解释：组件已完成了销毁，组件无法使用，data和methods都不可使用。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">    &lt;script src=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &lt;input  v-model=<span class="string">&quot;message&quot;</span>/&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;message&#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;button @click=<span class="string">&quot;clickfun&quot;</span>&gt;按钮&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> myVue = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">        data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> &#123;</span><br><span class="line">                message: <span class="string">&#x27;XXXX&#x27;</span></span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;,</span><br><span class="line">        </span><br><span class="line">        beforeCreate: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.group(<span class="string">&#x27;beforeCreate 创建前状态===============》&#x27;</span>);</span><br><span class="line">            <span class="keyword">var</span> state = &#123;</span><br><span class="line">                <span class="string">&#x27;el&#x27;</span>: <span class="built_in">this</span>.$el,</span><br><span class="line">                <span class="string">&#x27;data&#x27;</span>: <span class="built_in">this</span>.$data,</span><br><span class="line">                <span class="string">&#x27;message&#x27;</span>: <span class="built_in">this</span>.message</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">console</span>.log(state);</span><br><span class="line">        &#125;,</span><br><span class="line">        </span><br><span class="line">        created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.group(<span class="string">&#x27;created 创建完毕状态===============》&#x27;</span>);</span><br><span class="line">            <span class="keyword">var</span> state = &#123;</span><br><span class="line">                <span class="string">&#x27;el&#x27;</span>: <span class="built_in">this</span>.$el,</span><br><span class="line">                <span class="string">&#x27;data&#x27;</span>: <span class="built_in">this</span>.$data,</span><br><span class="line">                <span class="string">&#x27;message&#x27;</span>: <span class="built_in">this</span>.message</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">console</span>.log(state);</span><br><span class="line">        &#125;,</span><br><span class="line">        </span><br><span class="line">        beforeMount: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.group(<span class="string">&#x27;beforeMount 挂载前状态===============》&#x27;</span>);</span><br><span class="line">            <span class="keyword">var</span> state = &#123;</span><br><span class="line">                <span class="string">&#x27;el&#x27;</span>: <span class="built_in">this</span>.$el,</span><br><span class="line">                <span class="string">&#x27;data&#x27;</span>: <span class="built_in">this</span>.$data,</span><br><span class="line">                <span class="string">&#x27;message&#x27;</span>: <span class="built_in">this</span>.message</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">this</span>.$el);</span><br><span class="line">            <span class="built_in">console</span>.log(state);</span><br><span class="line">        &#125;,</span><br><span class="line">        </span><br><span class="line">        mounted: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.group(<span class="string">&#x27;mounted 挂载结束状态===============》&#x27;</span>);</span><br><span class="line">            <span class="keyword">var</span> state = &#123;</span><br><span class="line">                <span class="string">&#x27;el&#x27;</span>: <span class="built_in">this</span>.$el,</span><br><span class="line">                <span class="string">&#x27;data&#x27;</span>: <span class="built_in">this</span>.$data,</span><br><span class="line">                <span class="string">&#x27;message&#x27;</span>: <span class="built_in">this</span>.message</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">this</span>.$el);</span><br><span class="line">            <span class="built_in">console</span>.log(state);</span><br><span class="line">        &#125;,</span><br><span class="line">        </span><br><span class="line">        beforeUpdate: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.group(<span class="string">&#x27;beforeUpdate 更新前状态===============》&#x27;</span>);</span><br><span class="line">            <span class="keyword">var</span> state = &#123;</span><br><span class="line">                <span class="string">&#x27;el&#x27;</span>: <span class="built_in">this</span>.$el,</span><br><span class="line">                <span class="string">&#x27;data&#x27;</span>: <span class="built_in">this</span>.$data,</span><br><span class="line">                <span class="string">&#x27;message&#x27;</span>: <span class="built_in">this</span>.message</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">this</span>.$el);</span><br><span class="line">            <span class="built_in">console</span>.log(state);</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">&#x27;beforeUpdate == &#x27;</span> + <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;p&#x27;</span>)[<span class="number">0</span>].innerHTML);</span><br><span class="line">        &#125;,</span><br><span class="line">        </span><br><span class="line">        updated: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.group(<span class="string">&#x27;updated 更新完成状态===============》&#x27;</span>);</span><br><span class="line">            <span class="keyword">var</span> state = &#123;</span><br><span class="line">                <span class="string">&#x27;el&#x27;</span>: <span class="built_in">this</span>.$el,</span><br><span class="line">                <span class="string">&#x27;data&#x27;</span>: <span class="built_in">this</span>.$data,</span><br><span class="line">                <span class="string">&#x27;message&#x27;</span>: <span class="built_in">this</span>.message</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">this</span>.$el);</span><br><span class="line">            <span class="built_in">console</span>.log(state);</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">&#x27;updated == &#x27;</span> + <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;p&#x27;</span>)[<span class="number">0</span>].innerHTML);</span><br><span class="line">        &#125;,</span><br><span class="line">        </span><br><span class="line">        beforeDestroy: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.group(<span class="string">&#x27;beforeDestroy 销毁前状态===============》&#x27;</span>);</span><br><span class="line">            <span class="keyword">var</span> state = &#123;</span><br><span class="line">                <span class="string">&#x27;el&#x27;</span>: <span class="built_in">this</span>.$el,</span><br><span class="line">                <span class="string">&#x27;data&#x27;</span>: <span class="built_in">this</span>.$data,</span><br><span class="line">                <span class="string">&#x27;message&#x27;</span>: <span class="built_in">this</span>.message</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">this</span>.$el);</span><br><span class="line">            <span class="built_in">console</span>.log(state);</span><br><span class="line">        &#125;,</span><br><span class="line">        </span><br><span class="line">        destroyed: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.group(<span class="string">&#x27;destroyed 销毁完成状态===============》&#x27;</span>);</span><br><span class="line">            <span class="keyword">var</span> state = &#123;</span><br><span class="line">                <span class="string">&#x27;el&#x27;</span>: <span class="built_in">this</span>.$el,</span><br><span class="line">                <span class="string">&#x27;data&#x27;</span>: <span class="built_in">this</span>.$data,</span><br><span class="line">                <span class="string">&#x27;message&#x27;</span>: <span class="built_in">this</span>.message</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">this</span>.$el);</span><br><span class="line">            <span class="built_in">console</span>.log(state);</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            clickfun() &#123;</span><br><span class="line">                myVue.$destroy()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<ol>
+<li>beforeCreated （）：发生在组件注入前，此时无提取的信息，无响应式</li>
+<li>created（）：</li>
+</ol>
+<h3 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h3><h5 id="路由模式"><a href="#路由模式" class="headerlink" title="路由模式"></a>路由模式</h5><p>hash:  路径来自于地址栏中的#后面的值,兼容性较好</p>
+<p>history: 路径来自于真实的地址,就浏览器不兼容</p>
+<p>abstract: 路径来自于内存</p>
+<h3 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h3><p>数据的配置 state</p>
+<p>数据的改动:必须要提交mutation</p>
+<p>数据共享</p>
+<p>组件化开发的好处</p>
+<h5 id="页面刷新过程"><a href="#页面刷新过程" class="headerlink" title="页面刷新过程:"></a>页面刷新过程:</h5><p><strong>浏览器</strong> 通过 <strong>地址</strong> 访问 <strong>服务器</strong>, 下载html,css,js文件,浏览器渲染页面,执行js,创建vue实例,渲染根组件,router-view根据不同路径渲染相应组件</p>
+<h5 id="虚拟dom"><a href="#虚拟dom" class="headerlink" title="虚拟dom"></a>虚拟dom</h5>]]></content>
+      <categories>
+        <category>Vue</category>
       </categories>
   </entry>
 </search>
